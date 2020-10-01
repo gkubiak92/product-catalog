@@ -13,15 +13,12 @@ export const useStyles = makeStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
-  paper: {
-    margin: theme.spacing(8, 4),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+  loginContainer: {
+    padding: theme.spacing(8, 4),
+    [theme.breakpoints.up('md')]: {
+      padding: theme.spacing(8, 16),
+    },
+    height: '100%',
   },
   form: {
     width: '100%', // Fix IE 11 issue.
