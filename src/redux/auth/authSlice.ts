@@ -5,18 +5,23 @@ const initialState: AuthState = {
   isAuth: false,
   accessToken: '',
   authError: '',
+  loading: false,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    authStart() {},
+    authStart(state, action: PayloadAction<{ username: string; password: string }>) {
+      state.loading = true;
+    },
     authSuccess(state, action: PayloadAction<string>) {
+      state.loading = false;
       state.isAuth = true;
       state.accessToken = action.payload;
     },
     authFailure(state, action: PayloadAction<string>) {
+      state.loading = false;
       state.authError = action.payload;
       state.isAuth = false;
     },
