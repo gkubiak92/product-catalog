@@ -1,7 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'redux/rootReducer';
 
 import { AppRoutes } from 'routing/AppRoutes';
+import { Login } from './login/Login';
 
 export const App = () => {
-  return <AppRoutes />;
+  const isAuth = useSelector<RootState>((state) => state.auth.isAuth);
+  return isAuth ? <AppRoutes /> : <Login />;
 };
