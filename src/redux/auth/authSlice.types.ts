@@ -4,3 +4,8 @@ export interface AuthState {
   authError: string;
   loading: boolean;
 }
+
+export interface AuthStartPayload {
+  username: string;
+  password: string;
+}

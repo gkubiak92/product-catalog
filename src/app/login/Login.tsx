@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -9,9 +9,28 @@ import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
 import Logo from 'components/logo/Logo';
 import { Box } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import { authStart } from 'redux/auth/authSlice';
 
 export const Login = () => {
   const classes = useStyles();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const onSubmit = (e: FormEvent) => {
+    console.log('click on submit');
+    e.preventDefault();
+    dispatch(authStart({ username, password }));
+  };
 
   return (
     <Grid container component='main' className={classes.root}>
@@ -31,18 +50,20 @@ export const Login = () => {
             <Typography component='h1' variant='h5'>
               Login
             </Typography>
-            <form className={classes.form} noValidate>
+            <form className={classes.form} noValidate onSubmit={onSubmit}>
               <TextField
                 className={classes.textField}
                 variant='outlined'
                 margin='normal'
                 required
                 fullWidth
-                id='email'
+                id='username'
                 placeholder='Email Address'
-                name='email'
-                autoComplete='email'
+                name='username'
+                autoComplete='username'
                 autoFocus
+                value={username}
+                onChange={handleUsernameChange}
               />
               <TextField
                 className={classes.textField}
@@ -55,6 +76,8 @@ export const Login = () => {
                 type='password'
                 id='password'
                 autoComplete='current-password'
+                value={password}
+                onChange={handlePasswordChange}
               />
               <FormControlLabel
                 control={<Checkbox value='remember' color='primary' />}

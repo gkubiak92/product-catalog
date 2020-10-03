@@ -8,8 +8,8 @@ export function* authStartSaga() {
 
 export function* authStartAsync({ payload: { username, password } }: ReturnType<typeof authStart>) {
   try {
-    const accessToken = yield api.post('/auth/login', { username, password });
-    yield put(authSuccess(accessToken));
+    const { data } = yield api.post('/auth/login', { username, password });
+    yield put(authSuccess(data));
   } catch (error) {
     yield put(authFailure(error.message));
   }
