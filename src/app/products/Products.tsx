@@ -4,6 +4,7 @@ import Header from 'components/layout/header/Header';
 import ProductCard from 'components/ProductCard/ProductCard';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { selectProducts } from 'redux/products/products.selectors';
 import { fetchProductsStart } from 'redux/products/productsSlice';
 import { RootState } from 'redux/rootReducer';
 import { useStyles } from './styles';
@@ -11,10 +12,10 @@ import { useStyles } from './styles';
 export const Products = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const products = useSelector<RootState, Product[]>((state) => state.products.products);
+  const products = useSelector<RootState, Product[]>(selectProducts);
 
   useEffect(() => {
-    dispatch(fetchProductsStart({ limit: 8 }));
+    dispatch(fetchProductsStart());
   }, [dispatch]);
 
   return (

@@ -1,9 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GetProductParams, Product } from 'api/api.types';
+import { Product } from 'api/api.types';
 import { ProductsState } from './productsSlice.types';
 
 const initialState: ProductsState = {
   products: [],
+  searchParams: {
+    limit: 8,
+  },
   loading: false,
   error: '',
 };
@@ -12,7 +15,7 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    fetchProductsStart(state, action: PayloadAction<GetProductParams>) {
+    fetchProductsStart(state) {
       state.loading = true;
     },
     fetchProductsSuccess(state, action: PayloadAction<Product[]>) {
