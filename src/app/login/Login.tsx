@@ -8,15 +8,17 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
 import Logo from 'components/logo/Logo';
-import { Box } from '@material-ui/core';
-import { useDispatch } from 'react-redux';
+import { Box, CircularProgress } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 import { authStart } from 'redux/auth/authSlice';
+import { RootState } from 'redux/rootReducer';
 
 export const Login = () => {
   const classes = useStyles();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const isLoading = useSelector<RootState>((state) => state.auth.loading);
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -27,7 +29,6 @@ export const Login = () => {
   };
 
   const onSubmit = (e: FormEvent) => {
-    console.log('click on submit');
     e.preventDefault();
     dispatch(authStart({ username, password }));
   };
@@ -90,7 +91,7 @@ export const Login = () => {
                 color='primary'
                 className={classes.submit}
               >
-                Sign In
+                {isLoading ? <CircularProgress color='secondary' /> : 'Sign Up'}
               </Button>
               <Grid container>
                 <Grid item xs>
