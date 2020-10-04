@@ -3,10 +3,20 @@ import { ProductsResponse } from 'api/api.types';
 import { AxiosResponse } from 'axios';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { selectSearchParams } from './products.selectors';
-import { fetchProductsFailure, fetchProductsStart, fetchProductsSuccess } from './productsSlice';
+import {
+  fetchProductsFailure,
+  fetchProductsStart,
+  fetchProductsSuccess,
+  toggleActiveParam,
+  togglePromoParam,
+} from './productsSlice';
 
 export function* watchFetchProductsStart() {
   yield takeLatest(fetchProductsStart.type, fetchProductsAsync);
+}
+
+export function* watchFiltersChange() {
+  yield takeLatest([toggleActiveParam.type, togglePromoParam.type], fetchProductsAsync);
 }
 
 export function* fetchProductsAsync() {
@@ -21,5 +31,5 @@ export function* fetchProductsAsync() {
 }
 
 export function* productsSagas() {
-  yield all([call(watchFetchProductsStart)]);
+  yield all([call(watchFetchProductsStart), call(watchFiltersChange)]);
 }

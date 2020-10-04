@@ -1,35 +1,27 @@
 import { Grid } from '@material-ui/core';
 import { Product } from 'api/api.types';
 import Header from 'components/layout/header/Header';
-import ProductCard from 'components/ProductCard/ProductCard';
+import Loader from 'components/layout/Loader/Loader';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectProducts } from 'redux/products/products.selectors';
+import { isProductsLoading, selectProducts } from 'redux/products/products.selectors';
 import { fetchProductsStart } from 'redux/products/productsSlice';
 import { RootState } from 'redux/rootReducer';
-import { useStyles } from './styles';
+import ProductsGrid from './components/ProductsGrid/ProductsGrid';
 
 export const Products = () => {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const products = useSelector<RootState, Product[]>(selectProducts);
+  const productsLoading = useSelector<RootState, boolean>(isProductsLoading);
 
   useEffect(() => {
     dispatch(fetchProductsStart());
   }, [dispatch]);
 
   return (
-    <Grid container component='main' className={classes.root}>
+    <Grid container component='main' direction='column'>
       <Header />
-      <Grid container className={classes.productsContainer}>
-        {products.map((p) => (
-          <Grid key={p.id} item xs={12} sm={6} md={4} lg={3}>
-            <Grid container justify='center' alignItems='center'>
-              <ProductCard product={p} />
-            </Grid>
-          </Grid>
-        ))}
-      </Grid>
+      {productsLoading ? <Loader /> : <ProductsGrid products={products} />}
     </Grid>
   );
 };

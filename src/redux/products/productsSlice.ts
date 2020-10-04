@@ -6,6 +6,7 @@ const initialState: ProductsState = {
   products: [],
   searchParams: {
     limit: 8,
+    active: true,
   },
   loading: false,
   error: '',
@@ -27,6 +28,20 @@ const productsSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    toggleActiveParam(state, action: PayloadAction<boolean>) {
+      state.searchParams = {
+        ...state.searchParams,
+        active: action.payload,
+      };
+      state.loading = true;
+    },
+    togglePromoParam(state, action: PayloadAction<boolean>) {
+      state.searchParams = {
+        ...state.searchParams,
+        promo: action.payload,
+      };
+      state.loading = true;
+    },
   },
 });
 
@@ -34,6 +49,8 @@ export const {
   fetchProductsStart,
   fetchProductsSuccess,
   fetchProductsFailure,
+  toggleActiveParam,
+  togglePromoParam,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

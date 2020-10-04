@@ -3,15 +3,15 @@ import React from 'react';
 import { FilterProps } from './Filter.types';
 import { useStyles } from './styles';
 
-const Filter = ({ name, checked, onChecked }: FilterProps) => {
+const Filter = ({ name, checked, handleChange }: FilterProps) => {
   const classes = useStyles();
 
   return (
     <FormGroup row>
       <FormControlLabel
         className={classes.text}
-        control={<Checkbox checked={checked} onChange={onChecked} name={name} color='primary' />}
-        label='Secondary'
+        control={<Checkbox checked={checked} onChange={handleChange} name={name} color='primary' />}
+        label={name}
       />
     </FormGroup>
   );
