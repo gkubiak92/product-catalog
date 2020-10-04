@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LoginResponse } from './api.types';
+import { GetProductParams, LoginResponse, ProductsResponse } from './api.types';
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -11,4 +11,11 @@ const api = axios.create({
 const login = (username: string, password: string) =>
   api.post<LoginResponse>('/auth/login', { username, password });
 
-export default { login };
+const getProducts = (params?: GetProductParams) =>
+  api.get<ProductsResponse>('/product', {
+    params: {
+      ...params,
+    },
+  });
+
+export default { login, getProducts };
