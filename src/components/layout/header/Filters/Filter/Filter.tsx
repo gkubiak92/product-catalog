@@ -10,7 +10,7 @@ const Filter = ({ name, checked, onChecked }: FilterProps) => {
     <FormGroup row>
       <FormControlLabel
         className={classes.text}
-        control={<Checkbox checked={checked} onChange={onChecked} name={name} />}
+        control={<Checkbox checked={checked} onChange={onChecked} name={name} color='primary' />}
         label='Secondary'
       />
     </FormGroup>

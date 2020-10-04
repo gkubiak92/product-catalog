@@ -18,8 +18,39 @@ export const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     display: 'flex',
-    justifyContent: 'space-between',
-    padding: '12px',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    padding: '48px 24px',
+    [theme.breakpoints.up('md')]: {
+      padding: '48px 108px',
+      '& #logo': {
+        flex: 1,
+        marginRight: '105px',
+      },
+      '& #searchbar': {
+        flex: 3,
+        marginRight: '24px',
+      },
+      '& #filters': {
+        flex: 4,
+      },
+    },
+    [theme.breakpoints.down('sm')]: {
+      '& #logo': {
+        order: 1,
+      },
+      '& #useravatar': {
+        order: 2,
+      },
+      '& #searchbar': {
+        order: 3,
+        width: '100%',
+        margin: '20px 0',
+      },
+      '& #filters': {
+        order: 4,
+      },
+    },
     backgroundColor: '#fff',
   },
 }));
