@@ -27,7 +27,10 @@ const authSlice = createSlice({
       state.isAuth = false;
     },
     authLogout(state) {
-      state = initialState;
+      state.isAuth = false;
+      state.accessToken = '';
+      state.authError = '';
+      state.loading = false;
     },
   },
 });
