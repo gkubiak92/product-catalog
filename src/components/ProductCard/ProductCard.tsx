@@ -18,7 +18,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <Card className={classes.productCard}>
       <CardActionArea>
         <CardMedia className={classes.image} image={product.image} title={product.name} />
-        <CardContent>
+        <CardContent className={classes.productCardContent}>
           <Typography gutterBottom variant='h5' component='h2'>
             {product.name}
           </Typography>
@@ -28,11 +28,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size='small' color='primary'>
-          Share
-        </Button>
-        <Button size='small' color='primary'>
-          Learn More
+        <Button color='primary' variant='contained' fullWidth disabled={!product.active}>
+          {product.active ? 'Show details' : 'Unavailable'}
         </Button>
       </CardActions>
     </Card>
