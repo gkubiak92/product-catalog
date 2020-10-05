@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import auth from 'redux/auth/authSlice';
-import products from 'redux/products/productsSlice';
+import auth from 'redux/auth/auth.slice';
+import products from 'redux/products/products.slice';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 

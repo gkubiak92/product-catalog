@@ -1,7 +1,7 @@
 import React from 'react';
 import { Avatar, ListItemText, Menu, MenuItem } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-import { authLogout } from 'redux/auth/authSlice';
+import { authLogout } from 'redux/auth/auth.slice';
 import { useStyles } from './styles';
 
 const UserAvatar = () => {

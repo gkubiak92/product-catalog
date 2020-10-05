@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GetProductParams, Product } from 'api/api.types';
-import { ProductsState } from './productsSlice.types';
+import { ProductsState } from './products.types';
 
 const initialSearchParams: GetProductParams = {
   limit: 8,

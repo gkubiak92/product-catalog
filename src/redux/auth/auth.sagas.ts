@@ -2,7 +2,7 @@ import api from 'api/api';
 import { LoginResponse } from 'api/api.types';
 import { AxiosResponse } from 'axios';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { authFailure, authStart, authSuccess } from './authSlice';
+import { authFailure, authStart, authSuccess } from './auth.slice';
 
 export function* watchAuthStart() {
   yield takeLatest(authStart.type, authStartAsync);

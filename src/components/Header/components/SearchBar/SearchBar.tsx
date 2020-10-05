@@ -3,7 +3,7 @@ import React, { FormEvent, useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import { useStyles } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSearchParam } from 'redux/products/productsSlice';
+import { setSearchParam } from 'redux/products/products.slice';
 import { RootState } from 'redux/rootReducer';
 import { getSearchText } from 'redux/products/products.selectors';
 

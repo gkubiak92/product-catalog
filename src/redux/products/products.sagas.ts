@@ -11,7 +11,7 @@ import {
   setSearchParam,
   toggleActiveParam,
   togglePromoParam,
-} from './productsSlice';
+} from './products.slice';
 
 export function* watchFetchProductsStart() {
   yield takeLatest(fetchProductsStart.type, fetchProductsAsync);

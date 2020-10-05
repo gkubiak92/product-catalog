@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isActiveChecked, isPromoChecked } from 'redux/products/products.selectors';
-import { toggleActiveParam, togglePromoParam } from 'redux/products/productsSlice';
+import { toggleActiveParam, togglePromoParam } from 'redux/products/products.slice';
 import { RootState } from 'redux/rootReducer';
 import Filter from './Filter/Filter';
 import { useStyles } from './styles';

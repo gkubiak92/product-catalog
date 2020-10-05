@@ -5,7 +5,7 @@ import Loader from 'components/Loader/Loader';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isProductsLoading, selectProducts } from 'redux/products/products.selectors';
-import { fetchProductsStart } from 'redux/products/productsSlice';
+import { fetchProductsStart } from 'redux/products/products.slice';
 import { RootState } from 'redux/rootReducer';
 import ProductsGrid from './components/ProductsGrid/ProductsGrid';
 

@@ -10,7 +10,7 @@ import { useStyles } from './styles';
 import Logo from 'components/Logo/Logo';
 import { Box, CircularProgress } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { authStart } from 'redux/auth/authSlice';
+import { authStart } from 'redux/auth/auth.slice';
 import { RootState } from 'redux/rootReducer';
 
 export const Login = () => {
