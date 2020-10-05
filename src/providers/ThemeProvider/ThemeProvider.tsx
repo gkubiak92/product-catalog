@@ -13,6 +13,10 @@ const theme = createMuiTheme({
       fontSize: 14,
       fontWeight: 600,
     },
+    h5: {
+      fontSize: 30,
+      fontWeight: 600,
+    },
   },
   palette: {
     primary: {
@@ -27,13 +31,30 @@ const theme = createMuiTheme({
     },
   },
   overrides: {
+    MuiButton: {
+      label: {
+        fontSize: 14,
+        fontWeight: 600,
+        textTransform: 'none',
+      },
+    },
     MuiCard: {
       root: {
         borderRadius: 8,
       },
     },
-    MuiOutlinedInput: {
+    MuiInputBase: {
       root: {
+        fontSize: 14,
+        fontWeight: 600,
+      },
+    },
+    MuiOutlinedInput: {
+      input: {
+        padding: '16px 14px',
+      },
+      root: {
+        borderColor: '#E0E2EA',
         borderRadius: 8,
       },
     },

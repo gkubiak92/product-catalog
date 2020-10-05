@@ -1,8 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -59,7 +57,7 @@ export const Login = () => {
                 required
                 fullWidth
                 id='username'
-                placeholder='Email Address'
+                placeholder='Enter username'
                 name='username'
                 autoComplete='username'
                 autoFocus
@@ -73,16 +71,12 @@ export const Login = () => {
                 required
                 fullWidth
                 name='password'
-                placeholder='Password'
+                placeholder='Enter password'
                 type='password'
                 id='password'
                 autoComplete='current-password'
                 value={password}
                 onChange={handlePasswordChange}
-              />
-              <FormControlLabel
-                control={<Checkbox value='remember' color='primary' />}
-                label='Remember me'
               />
               <Button
                 type='submit'
@@ -91,11 +85,16 @@ export const Login = () => {
                 color='primary'
                 className={classes.submit}
               >
-                {isLoading ? <CircularProgress color='secondary' /> : 'Sign Up'}
+                {isLoading ? <CircularProgress color='secondary' /> : 'Log in'}
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href='#' variant='body2'>
+                  <Link
+                    href='#'
+                    variant='body2'
+                    underline='always'
+                    className={classes.forgotPasswordLink}
+                  >
                     Forgot password?
                   </Link>
                 </Grid>

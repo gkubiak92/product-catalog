@@ -4,7 +4,6 @@ import { ProductsState } from './products.types';
 
 const initialSearchParams: GetProductParams = {
   limit: 8,
-  active: true,
 };
 
 const initialState: ProductsState = {

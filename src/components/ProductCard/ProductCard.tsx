@@ -41,7 +41,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button color='primary' variant='contained' fullWidth disabled={!product.active}>
+        <Button
+          color='primary'
+          variant='contained'
+          onClick={() => handleCardClick(product)}
+          fullWidth
+          disabled={!product.active}
+        >
           {product.active ? 'Show details' : 'Unavailable'}
         </Button>
       </CardActions>

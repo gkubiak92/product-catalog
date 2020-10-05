@@ -14,6 +14,7 @@ export const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
   },
   loginContainer: {
+    backgroundColor: '#fff',
     padding: theme.spacing(8, 4),
     [theme.breakpoints.up('md')]: {
       padding: theme.spacing(8, 16),
@@ -30,5 +31,8 @@ export const useStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
     padding: '12px',
+  },
+  forgotPasswordLink: {
+    color: theme.palette.text.secondary,
   },
 }));
