@@ -7,6 +7,7 @@ import {
   fetchProductsFailure,
   fetchProductsStart,
   fetchProductsSuccess,
+  resetPage,
   setLoading,
   setPage,
   setSearchParam,
@@ -18,7 +19,7 @@ export function* watchFetchProductsStart() {
   yield takeLatest(fetchProductsStart.type, fetchProductsAsync);
 }
 
-export function* watchFiltersChange() {
+export function* watchSearchParamsChange() {
   yield takeLatest(
     [toggleActiveParam.type, togglePromoParam.type, setSearchParam.type, setPage.type],
     fetchProductsAsync
@@ -28,6 +29,7 @@ export function* watchFiltersChange() {
 export function* fetchProductsAsync() {
   try {
     yield put(setLoading(true));
+    yield put(resetPage());
     const params = yield select(selectSearchParams);
     const { data }: AxiosResponse<GetProductsResponse> = yield call(api.getProducts, params);
     yield put(fetchProductsSuccess(data));
@@ -39,5 +41,5 @@ export function* fetchProductsAsync() {
 }
 
 export function* productsSagas() {
-  yield all([call(watchFetchProductsStart), call(watchFiltersChange)]);
+  yield all([call(watchFetchProductsStart), call(watchSearchParamsChange)]);
 }

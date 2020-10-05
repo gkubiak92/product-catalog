@@ -3,12 +3,27 @@ import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
 import { AppThemeProviderProps } from './ThemeProvider.types';
 
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: ['Nunito', 'Roboto', 'sans-serif'].join(','),
+    body1: {
+      fontSize: 18,
+      fontWeight: 600,
+    },
+    body2: {
+      fontSize: 14,
+      fontWeight: 600,
+    },
+  },
   palette: {
     primary: {
       main: '#4460F7',
     },
     secondary: {
       main: '#F9A52B',
+    },
+    text: {
+      primary: '#1A1B1D',
+      secondary: '#9194A5',
     },
   },
   overrides: {
@@ -30,6 +45,12 @@ const theme = createMuiTheme({
     MuiPaper: {
       rounded: {
         borderRadius: 8,
+      },
+    },
+    MuiFormControlLabel: {
+      label: {
+        fontSize: 14,
+        fontWeight: 600,
       },
     },
   },
