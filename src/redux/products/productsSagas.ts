@@ -7,6 +7,7 @@ import {
   fetchProductsFailure,
   fetchProductsStart,
   fetchProductsSuccess,
+  setLoading,
   setSearchParam,
   toggleActiveParam,
   togglePromoParam,
@@ -25,10 +26,13 @@ export function* watchFiltersChange() {
 
 export function* fetchProductsAsync() {
   try {
+    yield put(setLoading(true));
     const params = yield select(selectSearchParams);
     const { data }: AxiosResponse<ProductsResponse> = yield call(api.getProducts, params);
     yield put(fetchProductsSuccess(data.items));
+    yield put(setLoading(false));
   } catch (error) {
+    yield put(setLoading(false));
     yield put(fetchProductsFailure(error));
   }
 }

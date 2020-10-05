@@ -20,38 +20,34 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    fetchProductsStart(state) {
-      state.loading = true;
-    },
+    fetchProductsStart(state) {},
     fetchProductsSuccess(state, action: PayloadAction<Product[]>) {
       state.products = action.payload;
-      state.loading = false;
       state.error = '';
     },
     fetchProductsFailure(state, action: PayloadAction<string>) {
-      state.loading = false;
       state.error = action.payload;
+    },
+    setLoading(state, action: PayloadAction<boolean>) {
+      state.loading = action.payload;
     },
     toggleActiveParam(state, action: PayloadAction<boolean>) {
       state.searchParams = {
         ...state.searchParams,
         active: action.payload,
       };
-      state.loading = true;
     },
     togglePromoParam(state, action: PayloadAction<boolean>) {
       state.searchParams = {
         ...state.searchParams,
         promo: action.payload,
       };
-      state.loading = true;
     },
     setSearchParam(state, action: PayloadAction<string>) {
       state.searchParams = {
         ...state.searchParams,
         search: action.payload,
       };
-      state.loading = true;
     },
   },
 });
@@ -60,6 +56,7 @@ export const {
   fetchProductsStart,
   fetchProductsSuccess,
   fetchProductsFailure,
+  setLoading,
   toggleActiveParam,
   togglePromoParam,
   setSearchParam,
