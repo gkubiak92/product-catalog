@@ -45,13 +45,13 @@ const productsSlice = createSlice({
     toggleActiveParam(state, action: PayloadAction<boolean>) {
       state.searchParams = {
         ...state.searchParams,
-        active: action.payload,
+        active: action.payload ? true : undefined,
       };
     },
     togglePromoParam(state, action: PayloadAction<boolean>) {
       state.searchParams = {
         ...state.searchParams,
-        promo: action.payload,
+        promo: action.payload ? true : undefined,
       };
     },
     setSearchParam(state, action: PayloadAction<string>) {
