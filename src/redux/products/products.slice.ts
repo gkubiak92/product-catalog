@@ -44,18 +44,21 @@ const productsSlice = createSlice({
     toggleActiveParam(state, action: PayloadAction<boolean>) {
       state.searchParams = {
         ...state.searchParams,
+        page: 1,
         active: action.payload ? true : undefined,
       };
     },
     togglePromoParam(state, action: PayloadAction<boolean>) {
       state.searchParams = {
         ...state.searchParams,
+        page: 1,
         promo: action.payload ? true : undefined,
       };
     },
     setSearchParam(state, action: PayloadAction<string>) {
       state.searchParams = {
         ...state.searchParams,
+        page: 1,
         search: action.payload,
       };
     },
@@ -63,12 +66,6 @@ const productsSlice = createSlice({
       state.searchParams = {
         ...state.searchParams,
         page: action.payload,
-      };
-    },
-    resetPage(state) {
-      state.searchParams = {
-        ...state.searchParams,
-        page: 1,
       };
     },
   },
@@ -83,7 +80,6 @@ export const {
   togglePromoParam,
   setSearchParam,
   setPage,
-  resetPage,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;
