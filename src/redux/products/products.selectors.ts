@@ -14,6 +14,11 @@ export const selectSearchParams = createSelector(
 export const selectSearchParam = (param: keyof GetProductParams) =>
   createSelector(selectSearchParams, (params) => params[param]);
 
+export const getSearchText = createSelector(
+  productsSelector,
+  ({ searchParams }) => searchParams.search ?? ''
+);
+
 export const isActiveChecked = createSelector(selectSearchParam('active'), (param) => !!param);
 export const isPromoChecked = createSelector(selectSearchParam('promo'), (param) => !!param);
 

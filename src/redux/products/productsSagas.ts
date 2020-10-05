@@ -26,7 +26,6 @@ export function* watchFiltersChange() {
 export function* fetchProductsAsync() {
   try {
     const params = yield select(selectSearchParams);
-    console.log(params);
     const { data }: AxiosResponse<ProductsResponse> = yield call(api.getProducts, params);
     yield put(fetchProductsSuccess(data.items));
   } catch (error) {

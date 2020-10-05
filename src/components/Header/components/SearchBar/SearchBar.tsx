@@ -2,12 +2,15 @@ import { IconButton, InputAdornment, OutlinedInput } from '@material-ui/core';
 import React, { FormEvent, useState } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import { useStyles } from './styles';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSearchParam } from 'redux/products/productsSlice';
+import { RootState } from 'redux/rootReducer';
+import { getSearchText } from 'redux/products/products.selectors';
 
 const SearchBar = () => {
   const classes = useStyles();
-  const [searchText, setSearchText] = useState('');
+  const initialSearchText = useSelector<RootState, string>(getSearchText);
+  const [searchText, setSearchText] = useState(initialSearchText);
   const dispatch = useDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
