@@ -2,7 +2,7 @@ export interface LoginResponse {
   access_token: string;
 }
 
-export interface ProductsResponse {
+export interface GetProductsResponse {
   items: Product[];
   itemCount: number;
   totalItems: number;

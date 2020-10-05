@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GetProductParams, Product } from 'api/api.types';
+import { GetProductParams, GetProductsResponse } from 'api/api.types';
 import { ProductsState } from './products.types';
 
 const initialSearchParams: GetProductParams = {
@@ -12,6 +12,11 @@ const initialState: ProductsState = {
   searchParams: {
     ...initialSearchParams,
   },
+  itemCount: 0,
+  totalItems: 0,
+  pageCount: 0,
+  next: '',
+  previous: '',
   loading: false,
   error: '',
 };
@@ -21,8 +26,14 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     fetchProductsStart(state) {},
-    fetchProductsSuccess(state, action: PayloadAction<Product[]>) {
-      state.products = action.payload;
+    fetchProductsSuccess(state, action: PayloadAction<GetProductsResponse>) {
+      const { items, itemCount, totalItems, pageCount, next, previous } = action.payload;
+      state.products = items;
+      state.itemCount = itemCount;
+      state.totalItems = totalItems;
+      state.pageCount = pageCount;
+      state.next = next;
+      state.previous = previous;
       state.error = '';
     },
     fetchProductsFailure(state, action: PayloadAction<string>) {

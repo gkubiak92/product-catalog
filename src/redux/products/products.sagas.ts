@@ -1,5 +1,5 @@
 import api from 'api/api';
-import { ProductsResponse } from 'api/api.types';
+import { GetProductsResponse } from 'api/api.types';
 import { AxiosResponse } from 'axios';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { selectSearchParams } from './products.selectors';
@@ -28,8 +28,8 @@ export function* fetchProductsAsync() {
   try {
     yield put(setLoading(true));
     const params = yield select(selectSearchParams);
-    const { data }: AxiosResponse<ProductsResponse> = yield call(api.getProducts, params);
-    yield put(fetchProductsSuccess(data.items));
+    const { data }: AxiosResponse<GetProductsResponse> = yield call(api.getProducts, params);
+    yield put(fetchProductsSuccess(data));
     yield put(setLoading(false));
   } catch (error) {
     yield put(setLoading(false));
