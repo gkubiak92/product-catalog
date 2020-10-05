@@ -1,7 +1,7 @@
 import { Grid } from '@material-ui/core';
 import { Product } from 'api/api.types';
-import Header from 'components/layout/header/Header';
-import Loader from 'components/layout/Loader/Loader';
+import Header from 'components/Header/Header';
+import Loader from 'components/Loader/Loader';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { isProductsLoading, selectProducts } from 'redux/products/products.selectors';

@@ -1,10 +1,10 @@
 import { AppBar, Toolbar } from '@material-ui/core';
-import Logo from 'components/logo/Logo';
+import Logo from 'components/Logo/Logo';
 import React from 'react';
-import Filters from './Filters/Filters';
-import SearchBar from './SearchBar/SearchBar';
+import Filters from './components/Filters/Filters';
+import SearchBar from './components/SearchBar/SearchBar';
 import { useStyles } from './styles';
-import UserAvatar from './UserAvatar/UserAvatar';
+import UserAvatar from './components/UserAvatar/UserAvatar';
 
 const Header = () => {
   const classes = useStyles();

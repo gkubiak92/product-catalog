@@ -7,7 +7,7 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { useStyles } from './styles';
-import Logo from 'components/logo/Logo';
+import Logo from 'components/Logo/Logo';
 import { Box, CircularProgress } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { authStart } from 'redux/auth/authSlice';
