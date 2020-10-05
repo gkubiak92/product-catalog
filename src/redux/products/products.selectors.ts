@@ -23,3 +23,10 @@ export const isActiveChecked = createSelector(selectSearchParam('active'), (para
 export const isPromoChecked = createSelector(selectSearchParam('promo'), (param) => !!param);
 
 export const isProductsLoading = createSelector(productsSelector, ({ loading }) => loading);
+
+export const getPagesCount = createSelector(productsSelector, ({ pageCount }) => pageCount);
+
+export const getActualPage = createSelector(
+  productsSelector,
+  ({ searchParams }) => searchParams.page ?? 1
+);

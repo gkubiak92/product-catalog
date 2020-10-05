@@ -60,6 +60,12 @@ const productsSlice = createSlice({
         search: action.payload,
       };
     },
+    setPage(state, action: PayloadAction<number>) {
+      state.searchParams = {
+        ...state.searchParams,
+        page: action.payload,
+      };
+    },
   },
 });
 
@@ -71,6 +77,7 @@ export const {
   toggleActiveParam,
   togglePromoParam,
   setSearchParam,
+  setPage,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

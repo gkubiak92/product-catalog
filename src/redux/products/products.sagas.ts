@@ -8,6 +8,7 @@ import {
   fetchProductsStart,
   fetchProductsSuccess,
   setLoading,
+  setPage,
   setSearchParam,
   toggleActiveParam,
   togglePromoParam,
@@ -19,7 +20,7 @@ export function* watchFetchProductsStart() {
 
 export function* watchFiltersChange() {
   yield takeLatest(
-    [toggleActiveParam.type, togglePromoParam.type, setSearchParam.type],
+    [toggleActiveParam.type, togglePromoParam.type, setSearchParam.type, setPage.type],
     fetchProductsAsync
   );
 }
