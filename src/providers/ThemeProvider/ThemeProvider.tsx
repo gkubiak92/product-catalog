@@ -11,6 +11,18 @@ const theme = createMuiTheme({
       main: '#F9A52B',
     },
   },
+  overrides: {
+    MuiCard: {
+      root: {
+        borderRadius: 8,
+      },
+    },
+    MuiOutlinedInput: {
+      root: {
+        borderRadius: 8,
+      },
+    },
+  },
 });
 
 export const AppThemeProvider = ({ children }: AppThemeProviderProps) => (

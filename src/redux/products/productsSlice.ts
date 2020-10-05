@@ -1,12 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Product } from 'api/api.types';
+import { GetProductParams, Product } from 'api/api.types';
 import { ProductsState } from './productsSlice.types';
+
+const initialSearchParams: GetProductParams = {
+  limit: 8,
+  active: true,
+};
 
 const initialState: ProductsState = {
   products: [],
   searchParams: {
-    limit: 8,
-    active: true,
+    ...initialSearchParams,
   },
   loading: false,
   error: '',
