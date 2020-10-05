@@ -22,8 +22,8 @@ const Filters = () => {
 
   return (
     <div id='filters' className={classes.filtersContainer}>
-      <Filter name='active' checked={activeChecked} handleChange={handleActiveCheck} />
-      <Filter name='promo' checked={promoChecked} handleChange={handlePromoCheck} />
+      <Filter name='Active' checked={activeChecked} handleChange={handleActiveCheck} />
+      <Filter name='Promo' checked={promoChecked} handleChange={handlePromoCheck} />
     </div>
   );
 };

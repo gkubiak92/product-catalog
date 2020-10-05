@@ -33,17 +33,19 @@ const ProductsGrid = ({ products }: ProductsGridProps) => {
       ) : (
         <NoSearchResult />
       )}
-      <Grid container justify='center'>
-        <Grid item>
-          <Pagination
-            count={pagesCount}
-            page={actualPage}
-            onChange={handlePageChange}
-            color='primary'
-            variant='text'
-          />
+      {products.length ? (
+        <Grid container justify='center'>
+          <Grid item>
+            <Pagination
+              count={pagesCount}
+              page={actualPage}
+              onChange={handlePageChange}
+              color='primary'
+              variant='text'
+            />
+          </Grid>
         </Grid>
-      </Grid>
+      ) : null}
     </Grid>
   );
 };

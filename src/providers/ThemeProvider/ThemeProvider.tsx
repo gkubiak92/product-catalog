@@ -22,6 +22,11 @@ const theme = createMuiTheme({
         borderRadius: 8,
       },
     },
+    MuiBackdrop: {
+      root: {
+        backgroundColor: 'rgba(26, 27, 29, 0.9)',
+      },
+    },
   },
 });
 
