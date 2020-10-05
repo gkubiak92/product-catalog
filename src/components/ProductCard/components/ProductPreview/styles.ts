@@ -6,6 +6,13 @@ export const useStyles = makeStyles((theme) => ({
     background: 'transparent',
   },
   titleContainer: {
+    position: 'relative',
+    padding: 0,
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 16,
+    right: 16,
     padding: 0,
   },
   image: {

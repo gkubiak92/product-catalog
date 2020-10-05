@@ -27,6 +27,11 @@ const theme = createMuiTheme({
         backgroundColor: 'rgba(26, 27, 29, 0.9)',
       },
     },
+    MuiPaper: {
+      rounded: {
+        borderRadius: 8,
+      },
+    },
   },
 });
 
