@@ -42,6 +42,12 @@ const productsSlice = createSlice({
       };
       state.loading = true;
     },
+    setSearchParam(state, action: PayloadAction<string>) {
+      state.searchParams = {
+        ...state.searchParams,
+        search: action.payload,
+      };
+    },
   },
 });
 
@@ -51,6 +57,7 @@ export const {
   fetchProductsFailure,
   toggleActiveParam,
   togglePromoParam,
+  setSearchParam,
 } = productsSlice.actions;
 
 export default productsSlice.reducer;

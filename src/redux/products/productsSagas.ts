@@ -7,6 +7,7 @@ import {
   fetchProductsFailure,
   fetchProductsStart,
   fetchProductsSuccess,
+  setSearchParam,
   toggleActiveParam,
   togglePromoParam,
 } from './productsSlice';
@@ -16,7 +17,10 @@ export function* watchFetchProductsStart() {
 }
 
 export function* watchFiltersChange() {
-  yield takeLatest([toggleActiveParam.type, togglePromoParam.type], fetchProductsAsync);
+  yield takeLatest(
+    [toggleActiveParam.type, togglePromoParam.type, setSearchParam.type],
+    fetchProductsAsync
+  );
 }
 
 export function* fetchProductsAsync() {
