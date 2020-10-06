@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authStart, clearAuthError } from 'redux/auth/auth.slice';
 import { RootState } from 'redux/rootReducer';
 import InfoSnackbar from 'components/InfoSnackbar/InfoSnackbar';
+import { isAuthenticated } from 'redux/auth/auth.selectors';
+import { Redirect } from 'react-router-dom';
 
 export const Login = () => {
   const classes = useStyles();
@@ -19,6 +21,7 @@ export const Login = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector<RootState, boolean>((state) => state.auth.loading);
   const authError = useSelector<RootState, string>((state) => state.auth.authError);
+  const isAuth = useSelector<RootState, boolean>(isAuthenticated);
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -36,6 +39,10 @@ export const Login = () => {
   const handleErrorClose = () => {
     dispatch(clearAuthError());
   };
+
+  if (isAuth) {
+    return <Redirect to='/' />;
+  }
 
   return (
     <Grid container component='main' className={classes.root}>

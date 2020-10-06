@@ -42,6 +42,9 @@ export const useStyles = makeStyles((theme) => ({
       '& #useravatar': {
         order: 2,
       },
+      '& #loginButton': {
+        order: 2,
+      },
       '& #searchbar': {
         order: 3,
         width: '100%',

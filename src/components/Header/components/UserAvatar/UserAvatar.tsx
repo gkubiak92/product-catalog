@@ -40,7 +40,9 @@ const UserAvatar = () => {
         onClose={handleClose}
       >
         <MenuItem>
-          <ListItemText onClick={() => dispatch(authLogout())}>Logout</ListItemText>
+          <ListItemText className={classes.menuItem} onClick={() => dispatch(authLogout())}>
+            Logout
+          </ListItemText>
         </MenuItem>
       </Menu>
     </div>

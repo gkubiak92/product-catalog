@@ -6,4 +6,9 @@ export const useStyles = makeStyles((theme) => ({
       cursor: 'pointer',
     },
   },
+  menuItem: {
+    '& span': {
+      fontSize: 14,
+    },
+  },
 }));

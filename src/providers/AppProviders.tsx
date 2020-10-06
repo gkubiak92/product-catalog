@@ -7,11 +7,11 @@ import { ReduxProvider } from './ReduxProvider/ReduxProvider';
 import { AppThemeProvider } from './ThemeProvider/ThemeProvider';
 
 export const AppProviders = ({ children }: AppProvidersProps) => (
-  <Router>
-    <ReduxProvider>
-      <PersistProvider>
-        <AppThemeProvider>{children}</AppThemeProvider>
-      </PersistProvider>
-    </ReduxProvider>
-  </Router>
+  <ReduxProvider>
+    <PersistProvider>
+      <AppThemeProvider>
+        <Router>{children}</Router>
+      </AppThemeProvider>
+    </PersistProvider>
+  </ReduxProvider>
 );
