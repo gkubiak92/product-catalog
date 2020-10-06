@@ -17,10 +17,10 @@ const NoSearchResult = () => {
           alignItems='center'
         >
           <img src={NoSearchResultIcon} alt='no search result' />
-          <Typography gutterBottom variant='h5' component='h2'>
+          <Typography gutterBottom variant='h5' component='h2' align='center'>
             Ooops... It's empty here
           </Typography>
-          <Typography variant='body2' color='textSecondary' component='p'>
+          <Typography variant='body2' color='textSecondary' component='p' align='center'>
             There are no products on the list
           </Typography>
         </Grid>
