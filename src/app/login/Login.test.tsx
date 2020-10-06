@@ -1,16 +1,15 @@
+import { ReduxProvider } from 'providers/ReduxProvider/ReduxProvider';
 import React from 'react';
 
-import { render } from 'tests';
+import { render, renderWithRedux } from 'tests';
 
 import { Login } from './Login';
 
 describe('Login', () => {
   test('Displays all information', async () => {
-    const { getByText, getByLabelText } = render(<Login />);
+    const { getByLabelText } = renderWithRedux(<Login />);
 
-    expect(getByText('Products page')).toBeInTheDocument();
-    expect(getByText('Products page')).toBeInTheDocument();
-    expect(getByLabelText('username:')).toBeInTheDocument();
-    expect(getByLabelText('password:')).toBeInTheDocument();
+    expect(getByLabelText('Username')).toBeInTheDocument();
+    expect(getByLabelText('Password')).toBeInTheDocument();
   });
 });
