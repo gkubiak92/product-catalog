@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['products'],
 };
 
 export type RootState = ReturnType<typeof rootReducer>;

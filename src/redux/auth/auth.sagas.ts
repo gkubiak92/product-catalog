@@ -2,10 +2,15 @@ import api from 'api/api';
 import { LoginResponse } from 'api/api.types';
 import { AxiosResponse } from 'axios';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { authFailure, authStart, authSuccess } from './auth.slice';
+import { clearSearchParams } from 'redux/products/products.slice';
+import { authFailure, authLogout, authStart, authSuccess } from './auth.slice';
 
 export function* watchAuthStart() {
   yield takeLatest(authStart.type, authStartAsync);
+}
+
+export function* watchAuthLogout() {
+  yield takeLatest(authLogout.type, clearAfterLogout);
 }
 
 export function* authStartAsync({ payload }: ReturnType<typeof authStart>) {
@@ -18,6 +23,10 @@ export function* authStartAsync({ payload }: ReturnType<typeof authStart>) {
   }
 }
 
+export function* clearAfterLogout() {
+  yield put(clearSearchParams());
+}
+
 export function* authSagas() {
-  yield all([call(watchAuthStart)]);
+  yield all([call(watchAuthStart), call(watchAuthLogout)]);
 }
