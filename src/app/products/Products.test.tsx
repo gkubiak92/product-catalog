@@ -1,14 +1,13 @@
-import { ReduxProvider } from 'providers/ReduxProvider/ReduxProvider';
 import React from 'react';
 
-import { render, renderWithRedux } from 'tests';
+import { renderWithRedux } from 'tests';
 
 import { Products } from './Products';
 
 describe('Products', () => {
-  test('Displays page header', async () => {
-    const { getByText } = renderWithRedux(<Products />);
+  test('Displays layout header', async () => {
+    const { container } = renderWithRedux(<Products />);
 
-    // expect(getByText('Products page')).toBeInTheDocument();
+    expect(container.querySelector('.MuiAppBar-root')).toBeInTheDocument();
   });
 });
