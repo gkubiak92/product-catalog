@@ -26,10 +26,15 @@ const ProductPreview = () => {
         </IconButton>
       </DialogTitle>
       <DialogContent className={classes.dialogContent}>
-        <Typography gutterBottom variant='body1' component='h2'>
+        <Typography className={classes.productTitle} gutterBottom variant='body1' component='h2'>
           {product.name}
         </Typography>
-        <Typography variant='body2' color='textSecondary' component='p'>
+        <Typography
+          className={classes.productDesc}
+          variant='body2'
+          color='textSecondary'
+          component='p'
+        >
           {product.description}
         </Typography>
       </DialogContent>

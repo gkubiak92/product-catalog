@@ -16,9 +16,18 @@ export const useStyles = makeStyles((theme) => ({
     padding: 0,
   },
   image: {
-    height: 300,
+    width: '100%',
   },
   dialogContent: {
-    padding: '24px 32px 56px 32px',
+    padding: 24,
+    [theme.breakpoints.up('md')]: {
+      padding: '24px 32px 56px 32px',
+    },
+  },
+  productTitle: {
+    fontSize: 24,
+  },
+  productDesc: {
+    fontSize: 18,
   },
 }));
