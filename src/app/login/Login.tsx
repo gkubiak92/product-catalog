@@ -56,6 +56,7 @@ export const Login = () => {
               Login
             </Typography>
             <form className={classes.form} noValidate onSubmit={onSubmit}>
+              <label htmlFor='username'>Username</label>
               <TextField
                 className={classes.textField}
                 variant='outlined'
@@ -70,6 +71,7 @@ export const Login = () => {
                 value={username}
                 onChange={handleUsernameChange}
               />
+              <label htmlFor='password'>Password</label>
               <TextField
                 className={classes.textField}
                 variant='outlined'

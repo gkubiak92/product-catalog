@@ -24,13 +24,16 @@ export const useStyles = makeStyles((theme) => ({
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
+    '&label': {
+      fontWeight: 600,
+    },
   },
   textField: {
-    borderRadius: '8px',
+    marginTop: 8,
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    padding: '12px',
+    padding: 12,
   },
   forgotPasswordLink: {
     color: theme.palette.text.secondary,
