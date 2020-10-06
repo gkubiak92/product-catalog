@@ -1,7 +1,7 @@
 import { ReduxProvider } from 'providers/ReduxProvider/ReduxProvider';
 import React from 'react';
 
-import { render, renderWithRedux } from 'tests';
+import { renderWithRedux } from 'tests';
 
 import { Login } from './Login';
 

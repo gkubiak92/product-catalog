@@ -37,10 +37,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <Typography variant='body2' color='textSecondary' component='p'>
             {product.description}
           </Typography>
-          <Rating className={classes.rating} value={product.rating} readOnly size='small' />
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className={classes.productCardActions}>
+        <Rating className={classes.rating} value={product.rating} readOnly size='small' />
         <Button
           color='primary'
           variant='contained'
