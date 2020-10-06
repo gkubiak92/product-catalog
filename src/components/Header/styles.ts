@@ -20,7 +20,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
-    padding: '48px 24px',
+    padding: '48px 24px 24px 24px',
     [theme.breakpoints.up('md')]: {
       padding: '48px 108px',
       '& #logo': {
