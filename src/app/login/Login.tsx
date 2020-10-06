@@ -8,15 +8,17 @@ import { useStyles } from './styles';
 import Logo from 'components/Logo/Logo';
 import { Box, CircularProgress } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { authStart } from 'redux/auth/auth.slice';
+import { authStart, clearAuthError } from 'redux/auth/auth.slice';
 import { RootState } from 'redux/rootReducer';
+import InfoSnackbar from 'components/InfoSnackbar/InfoSnackbar';
 
 export const Login = () => {
   const classes = useStyles();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const isLoading = useSelector<RootState>((state) => state.auth.loading);
+  const isLoading = useSelector<RootState, boolean>((state) => state.auth.loading);
+  const authError = useSelector<RootState, string>((state) => state.auth.authError);
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -29,6 +31,10 @@ export const Login = () => {
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     dispatch(authStart({ username, password }));
+  };
+
+  const handleErrorClose = () => {
+    dispatch(clearAuthError());
   };
 
   return (
@@ -84,6 +90,7 @@ export const Login = () => {
                 variant='contained'
                 color='primary'
                 className={classes.submit}
+                disabled={!username || !password}
               >
                 {isLoading ? <CircularProgress color='secondary' /> : 'Log in'}
               </Button>
@@ -103,6 +110,13 @@ export const Login = () => {
           </Box>
         </Grid>
       </Grid>
+      <InfoSnackbar
+        message={authError}
+        open={!!authError}
+        autoHideDuration={6000}
+        severity='error'
+        onClose={handleErrorClose}
+      />
     </Grid>
   );
 };

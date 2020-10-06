@@ -32,9 +32,18 @@ const authSlice = createSlice({
       state.authError = '';
       state.loading = false;
     },
+    clearAuthError(state) {
+      state.authError = '';
+    },
   },
 });
 
-export const { authStart, authSuccess, authFailure, authLogout } = authSlice.actions;
+export const {
+  authStart,
+  authSuccess,
+  authFailure,
+  authLogout,
+  clearAuthError,
+} = authSlice.actions;
 
 export default authSlice.reducer;

@@ -28,7 +28,7 @@ const UserAvatar = () => {
         elevation={8}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'center',
+          horizontal: 'left',
         }}
         transformOrigin={{
           vertical: 'top',
