@@ -20,7 +20,7 @@ export const Products = () => {
   }, [dispatch]);
 
   return (
-    <Grid container component='main' direction='column'>
+    <Grid container component='main' direction='column' id='productsPage'>
       <Header />
       {productsLoading ? <Loader /> : <ProductsGrid products={products} />}
       <ProductPreview />
