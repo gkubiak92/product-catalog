@@ -26,7 +26,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   return (
-    <Card className={classes.productCard}>
+    <Card className={classes.productCard} data-test-id='productCard'>
       {product.promo ? <PromoBadge /> : null}
       <CardActionArea onClick={() => handleCardClick(product)}>
         <CardMedia className={classes.image} image={product.image} title={product.name} />

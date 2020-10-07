@@ -5,8 +5,8 @@ import { NavigationMenu } from '../../pages/Navigation';
 context('Login page should', () => {
   beforeEach(() => {
     cy.server();
-    cy.route('POST', '/login*', 'fixture:login.json').as('apiLoginCheck');
-    cy.route('GET', '/product*', 'fixture:products.json');
+    cy.route('POST', '/auth/login', 'fixture:login/login.json').as('apiLoginCheck');
+    cy.route('GET', '/product*', 'fixture:products/products.json');
     cy.visit(NavigationMenu.loginLink);
   });
 

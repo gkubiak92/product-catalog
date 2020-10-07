@@ -19,9 +19,9 @@
       "active": true
     }
   ],
-  "itemCount": 8,
-  "totalItems": 465,
-  "pageCount": 59,
-  "next": "https://join-tsh-api-staging.herokuapp.com/product?page=2&limit=8",
+  "itemCount": 2,
+  "totalItems": 2,
+  "pageCount": 1,
+  "next": "",
   "previous": ""
 }
