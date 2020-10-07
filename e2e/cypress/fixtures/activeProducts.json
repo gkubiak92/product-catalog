@@ -1,0 +1,27 @@
+{
+  "items": [
+    {
+      "id": 2,
+      "name": "Generic Soft Pants",
+      "description": "Quo quo hic exercitationem provident.",
+      "rating": 3,
+      "image": "https://picsum.photos/640/480?random=812",
+      "promo": true,
+      "active": true
+    },
+    {
+      "id": 9,
+      "name": "Refined Plastic Fish",
+      "description": "Est dolorem eum hic iste fugiat doloremque.",
+      "rating": 4,
+      "image": "https://picsum.photos/640/480?random=7493",
+      "promo": false,
+      "active": true
+    }
+  ],
+  "itemCount": 8,
+  "totalItems": 465,
+  "pageCount": 59,
+  "next": "https://join-tsh-api-staging.herokuapp.com/product?page=2&limit=8",
+  "previous": ""
+}
