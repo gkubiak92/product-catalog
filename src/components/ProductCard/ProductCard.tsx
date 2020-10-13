@@ -10,6 +10,7 @@ import {
 import { Rating } from '@material-ui/lab';
 import { Product } from 'api/api.types';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { setProductPreview, toggleProductPreview } from 'redux/ui/ui.slice';
 import PromoBadge from './components/PromoBadge/PromoBadge';
@@ -19,6 +20,7 @@ import { useStyles } from './styles';
 const ProductCard = ({ product }: ProductCardProps) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleCardClick = (p: Product) => {
     dispatch(setProductPreview(p));
@@ -48,7 +50,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           fullWidth
           disabled={!product.active}
         >
-          {product.active ? 'Show details' : 'Unavailable'}
+          {product.active ? t('showDetails') : t('unavailable')}
         </Button>
       </CardActions>
     </Card>
