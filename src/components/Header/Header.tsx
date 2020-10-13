@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'redux/rootReducer';
 import { isAuthenticated } from 'redux/auth/auth.selectors';
 import LoginButton from './components/LoginButton/LoginButton';
+import LanguageSelector from 'components/LanguageSelector/LanguageSelector';
 
 const Header = () => {
   const classes = useStyles();
@@ -20,6 +21,7 @@ const Header = () => {
         <Logo />
         <SearchBar />
         <Filters />
+        <LanguageSelector />
         {isAuth ? <UserAvatar /> : <LoginButton />}
       </Toolbar>
     </AppBar>

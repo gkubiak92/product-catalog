@@ -34,6 +34,9 @@ export const useStyles = makeStyles((theme) => ({
       '& #filters': {
         flex: 4,
       },
+      '& #langSelector': {
+        marginRight: '16px',
+      },
     },
     [theme.breakpoints.down('sm')]: {
       '& #logo': {
@@ -52,6 +55,10 @@ export const useStyles = makeStyles((theme) => ({
       },
       '& #filters': {
         order: 4,
+      },
+      '& #langSelector': {
+        order: 5,
+        marginLeft: 'auto',
       },
     },
     backgroundColor: '#fff',
