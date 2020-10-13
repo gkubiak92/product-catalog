@@ -6,7 +6,6 @@ import { useStyles } from './styles';
 const LanguageSelector = () => {
   const classes = useStyles();
   const { i18n } = useTranslation();
-  const languages = Object.keys(i18n.services.resourceStore.data);
 
   const handleLangChange = (
     event: React.ChangeEvent<{
@@ -22,12 +21,10 @@ const LanguageSelector = () => {
         variant='outlined'
         value={i18n.language}
         onChange={handleLangChange}
+        defaultValue={i18n.language}
       >
-        {languages.map((lang) => (
-          <MenuItem value={lang} key={lang}>
-            {lang}
-          </MenuItem>
-        ))}
+        <MenuItem value='en'>en</MenuItem>
+        <MenuItem value='de'>de</MenuItem>
       </Select>
     </div>
   ) : null;
