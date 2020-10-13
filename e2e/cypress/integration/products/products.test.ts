@@ -21,7 +21,7 @@ context('Products page should', () => {
 
   it('Should have login button', () => {
     cy.clearSession();
-    cy.get('header').contains('Log In');
+    cy.get('header').contains('Log in');
   });
 
   it('filter active products properly', () => {
