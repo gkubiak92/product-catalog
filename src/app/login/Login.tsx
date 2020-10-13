@@ -13,6 +13,8 @@ import { RootState } from 'redux/rootReducer';
 import InfoSnackbar from 'components/InfoSnackbar/InfoSnackbar';
 import { isAuthenticated } from 'redux/auth/auth.selectors';
 import { Redirect } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from 'components/LanguageSelector/LanguageSelector';
 
 export const Login = () => {
   const classes = useStyles();
@@ -22,6 +24,7 @@ export const Login = () => {
   const isLoading = useSelector<RootState, boolean>((state) => state.auth.loading);
   const authError = useSelector<RootState, string>((state) => state.auth.authError);
   const isAuth = useSelector<RootState, boolean>(isAuthenticated);
+  const { t } = useTranslation();
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -55,15 +58,16 @@ export const Login = () => {
           alignItems='flex-start'
           className={classes.loginContainer}
         >
-          <Grid item>
+          <Grid container>
             <Logo />
+            <LanguageSelector />
           </Grid>
           <Box my='auto'>
             <Typography component='h1' variant='h5'>
-              Login
+              {t('login')}
             </Typography>
             <form className={classes.form} noValidate onSubmit={onSubmit}>
-              <label htmlFor='username'>Username</label>
+              <label htmlFor='username'>{t('username')}</label>
               <TextField
                 className={classes.textField}
                 variant='outlined'
@@ -71,14 +75,14 @@ export const Login = () => {
                 required
                 fullWidth
                 id='username'
-                placeholder='Enter username'
+                placeholder={t('usernamePlaceholder')}
                 name='username'
                 autoComplete='username'
                 autoFocus
                 value={username}
                 onChange={handleUsernameChange}
               />
-              <label htmlFor='password'>Password</label>
+              <label htmlFor='password'>{t('password')}</label>
               <TextField
                 className={classes.textField}
                 variant='outlined'
@@ -86,7 +90,7 @@ export const Login = () => {
                 required
                 fullWidth
                 name='password'
-                placeholder='Enter password'
+                placeholder={t('passwordPlaceholder')}
                 type='password'
                 id='password'
                 autoComplete='current-password'
@@ -101,7 +105,7 @@ export const Login = () => {
                 className={classes.submit}
                 disabled={!username || !password}
               >
-                {isLoading ? <CircularProgress color='secondary' /> : 'Log in'}
+                {isLoading ? <CircularProgress color='secondary' /> : t('login')}
               </Button>
               <Grid container>
                 <Grid item xs>
@@ -111,7 +115,7 @@ export const Login = () => {
                     underline='always'
                     className={classes.forgotPasswordLink}
                   >
-                    Forgot password?
+                    {t('forgotPassword')}
                   </Link>
                 </Grid>
               </Grid>
