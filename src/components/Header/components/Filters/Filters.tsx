@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { isActiveChecked, isPromoChecked } from 'redux/products/products.selectors';
 import { toggleActiveParam, togglePromoParam } from 'redux/products/products.slice';
@@ -11,6 +12,7 @@ const Filters = () => {
   const activeChecked = useSelector<RootState, boolean>(isActiveChecked);
   const promoChecked = useSelector<RootState, boolean>(isPromoChecked);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleActiveCheck = (event: React.ChangeEvent<HTMLInputElement>, checked: boolean) => {
     dispatch(toggleActiveParam(checked));
@@ -22,8 +24,8 @@ const Filters = () => {
 
   return (
     <div id='filters' className={classes.filtersContainer}>
-      <Filter name='Active' checked={activeChecked} handleChange={handleActiveCheck} />
-      <Filter name='Promo' checked={promoChecked} handleChange={handlePromoCheck} />
+      <Filter name={t('active')} checked={activeChecked} handleChange={handleActiveCheck} />
+      <Filter name={t('promo')} checked={promoChecked} handleChange={handlePromoCheck} />
     </div>
   );
 };
